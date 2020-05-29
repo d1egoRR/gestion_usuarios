@@ -11,7 +11,7 @@ $cliente = Cliente::obtenerPorId($id);
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Modificar Cliente</title>
+	<title>Modificar Clientes</title>
 </head>
 <body>
 
