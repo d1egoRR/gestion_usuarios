@@ -9,14 +9,22 @@ $password = $_POST['txtPassword'];
 
 $x = Usuario::login($username, $password);
 
+
+
 if ($x) {
+	//session_start();
 	header("location: ../../../dashboard.php");
 } else {
 	header("location: ../../../formulario_login.php");
 }
 
+
+
+// $usuario = Usuario::login($username, $password);
 /*
-if ($x esta logueado) {
+if ($usuario->estaLogueado()) {
+	session_start();
+	$_SESSION['usuario'] = $usuario;
 	ir al dashboard
 } else {
 	ir al formulario

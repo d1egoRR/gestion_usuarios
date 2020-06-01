@@ -1,3 +1,12 @@
+<?php
+
+session_start();
+
+$usuario = $_SESSION['usuario'];
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,5 +14,6 @@
 </head>
 <body>
     BIENVENIDO AL DASHBOARD
+    <!--BIENVENIDO <?php echo $usuario->getUsername() ?>-->
 </body>
 </html>

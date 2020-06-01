@@ -10,6 +10,7 @@ class Usuario extends Persona {
 	private $_password;
 	private $_fechaUltimoLogin;
 	private $_idPerfil;
+	private $_estaLogueado;
 
     /**
      * @return mixed
@@ -123,11 +124,19 @@ class Usuario extends Persona {
     	if ($result->num_rows > 0) {
     		// si existe: retornar boolean true
     		return true;
+    		// $this->_estaLogueado = true;
+    		//return $usuario;
     	} else {
     		// si no existe: false
     		return false;
+    		// $this->_estaLogueado = false;
+    		//return $usuario;
     	}
 
+    }
+
+    public function estaLogueado() {
+    	return $this->_estaLogueado;
     }
 }
 
