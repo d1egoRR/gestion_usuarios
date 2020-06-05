@@ -2,7 +2,13 @@
 
 session_start();
 
-$usuario = $_SESSION['usuario'];
+if (!isset($_SESSION['estaLogueado'])) {
+	header('location: formulario_login.php');
+}
+
+
+$id_usuario = $_SESSION['id_usuario'];
+$username = $_SESSION['username'];
 
 ?>
 
@@ -13,7 +19,9 @@ $usuario = $_SESSION['usuario'];
 	<title></title>
 </head>
 <body>
-    BIENVENIDO AL DASHBOARD
-    <!--BIENVENIDO <?php echo $usuario->getUsername() ?>-->
+    BIENVENIDO <?php echo $username ?>
+
+    <br>
+    <a href="logout.php">Salir</a>
 </body>
 </html>
