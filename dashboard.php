@@ -1,17 +1,3 @@
-<?php
-
-require_once "class/Usuario.php";
-
-session_start();
-
-if (!isset($_SESSION['usuario'])) {
-	header('location: formulario_login.php');
-}
-
-$usuario = $_SESSION['usuario'];
-
-?>
-
 
 <!DOCTYPE html>
 <html>
@@ -19,9 +5,12 @@ $usuario = $_SESSION['usuario'];
 	<title></title>
 </head>
 <body>
-    BIENVENIDO <?php echo $usuario ?>
 
-    <br>
-    <a href="logout.php">Salir</a>
+	<?php require_once "menu.php"; ?>
+
+	<br><br>
+
+    ESTE ES EL DASHBOARD
+
 </body>
 </html>
