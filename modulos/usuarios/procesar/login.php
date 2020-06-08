@@ -11,9 +11,7 @@ $usuario = Usuario::login($username, $password);
 
 if ($usuario->estaLogueado()) {
 	session_start();
-	$_SESSION['id_usuario'] = $usuario->getIdUsuario();
-	$_SESSION['username'] = $usuario->getUsername();
-	$_SESSION['estaLogueado'] = true;
+	$_SESSION['usuario'] = $usuario;
 	header("location: ../../../dashboard.php");
 } else {
 	header("location: ../../../formulario_login.php");
