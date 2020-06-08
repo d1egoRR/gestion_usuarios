@@ -72,7 +72,7 @@ class Modulo {
         return $this;
     }
 
-    public static function obtenerModuloPorIdPerfil($idPerfil) {
+    public static function obtenerModulosPorIdPerfil($idPerfil) {
     	$sql = "SELECT modulo.id_modulo, modulo.descripcion, modulo.directorio "
     	     . "FROM modulo "
     	     . "INNER JOIN perfil_modulo on perfil_modulo.id_modulo = modulo.id_modulo "

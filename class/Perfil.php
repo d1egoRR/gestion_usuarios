@@ -64,12 +64,8 @@ class Perfil {
         $data = $result->fetch_assoc();
         $perfil = new Perfil($data['descripcion']);
         $perfil->_idPerfil = $data['id_perfil'];
+        $perfil->_arrModulos = Modulo::obtenerModulosPorIdPerfil($perfil->_idPerfil);
         return $perfil;
-    }
-
-    public function obtenerModulos() {
-    	$this->_arrModulos = Modulo::obtenerModulosPorIdPefil($this->_idPerfil);
-    	return $this->_arrModulos;
     }
 
 }

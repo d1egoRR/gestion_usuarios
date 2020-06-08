@@ -9,7 +9,6 @@ if (!isset($_SESSION['usuario'])) {
 }
 
 $usuario = $_SESSION['usuario'];
-
 ?>
 
 
