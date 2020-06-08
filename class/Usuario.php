@@ -1,5 +1,6 @@
 <?php
 
+require_once 'Perfil.php';
 require_once 'Persona.php';
 require_once 'MySQL.php';
 
@@ -10,6 +11,7 @@ class Usuario extends Persona {
 	private $_password;
 	private $_fechaUltimoLogin;
 	private $_idPerfil;
+    private $_perfil;
 	private $_estaLogueado;
 
     /**
@@ -129,8 +131,11 @@ class Usuario extends Persona {
             $usuario = new Usuario($registro['nombre'], $registro['apellido']);
             $usuario->_idUsuario = $registro['id_usuario'];
             $usuario->_username = $registro['username'];
+            $usuario->_idPerfil = $registro['id_perfil'];
             $usuario->_fechaUltimoLogin = $registro['fecha_ultimo_login'];
             $usuario->_estaLogueado = true;
+
+            $usuario->_perfil = Perfil::obtenerPorId($usuario->_idPerfil);
     	} else {
             $usuario = new Usuario('', '');
             $usuario->_estaLogueado = false;
