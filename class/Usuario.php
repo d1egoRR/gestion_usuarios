@@ -11,8 +11,9 @@ class Usuario extends Persona {
 	private $_password;
 	private $_fechaUltimoLogin;
 	private $_idPerfil;
-    private $_perfil;
 	private $_estaLogueado;
+
+    public $perfil;
 
     /**
      * @return mixed
@@ -134,7 +135,7 @@ class Usuario extends Persona {
             $usuario->_fechaUltimoLogin = $registro['fecha_ultimo_login'];
             $usuario->_estaLogueado = true;
 
-            $usuario->_perfil = Perfil::obtenerPorId($usuario->_idPerfil);
+            $usuario->perfil = Perfil::obtenerPorId($usuario->_idPerfil);
     	} else {
             $usuario = new Usuario('', '');
             $usuario->_estaLogueado = false;

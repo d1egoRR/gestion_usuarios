@@ -68,6 +68,10 @@ class Perfil {
         return $perfil;
     }
 
+    public function getModulos() {
+    	return $this->_arrModulos;
+    }
+
 }
 
 ?>
