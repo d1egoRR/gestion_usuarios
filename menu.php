@@ -22,7 +22,7 @@ $usuario = $_SESSION['usuario'];
 	<?php foreach ($usuario->perfil->getModulos() as $modulo): ?>
 
 		<a href="/programacion3/usuarios/modulos/<?php echo $modulo->getDirectorio() ?>/listado.php">
-			<?php echo $modulo->getDescripcion() ?>
+			<?php echo $modulo ?>
 		</a>
 		|
 
