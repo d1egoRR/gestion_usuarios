@@ -1,14 +1,14 @@
 <?php
 
+require_once "class/Usuario.php";
+
 session_start();
 
-if (!isset($_SESSION['estaLogueado'])) {
+if (!isset($_SESSION['usuario'])) {
 	header('location: formulario_login.php');
 }
 
-
-$id_usuario = $_SESSION['id_usuario'];
-$username = $_SESSION['username'];
+$usuario = $_SESSION['usuario'];
 
 ?>
 
@@ -19,7 +19,7 @@ $username = $_SESSION['username'];
 	<title></title>
 </head>
 <body>
-    BIENVENIDO <?php echo $username ?>
+    BIENVENIDO <?php echo $usuario ?>
 
     <br>
     <a href="logout.php">Salir</a>
