@@ -113,7 +113,6 @@ class Usuario extends Persona {
     }
 
     public static function login($username, $password) {
-    	// hacer consulta a la DB tabla usuarios
     	$sql = "SELECT * FROM usuario "
              . "INNER JOIN persona on persona.id_persona = usuario.id_persona "
              . "WHERE username = '$username' "
@@ -137,7 +136,6 @@ class Usuario extends Persona {
     	}
 
         return $usuario;
-
     }
 
     public function estaLogueado() {
