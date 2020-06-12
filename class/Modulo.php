@@ -91,7 +91,7 @@ class Modulo {
     	$listado = array();
 		while ($registro = $datos->fetch_assoc()) {
 			$modulo = new Modulo($registro['descripcion'], $registro['directorio']);
-			$modulo->setIdModulo = $registro['id_modulo'];
+			$modulo->_idModulo = $registro['id_modulo'];
 			$listado[] = $modulo;
 		}
 		return $listado;
