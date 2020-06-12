@@ -25,6 +25,10 @@ $cliente = Cliente::obtenerPorId($id);
 	<br>
 	<?php echo $cliente->getFechaNacimiento(); ?>
 	<br>
+	<?php
+	echo $cliente->domicilio;
+	?>
+	<br>
 	<br>
 	<br>
 
