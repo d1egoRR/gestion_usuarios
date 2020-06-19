@@ -1,5 +1,6 @@
 <?php
 
+require_once 'Domicilio.php';
 require_once 'MySQL.php';
 
 
@@ -12,6 +13,8 @@ class Persona {
 	protected $_idTipoDocumento;
     protected $_numeroDocumento;
 	protected $_estado;
+
+    public $domicilio;
 
 	const ACTIVO = 1;
 
@@ -129,6 +132,26 @@ class Persona {
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getNumeroDocumento()
+    {
+        return $this->_numeroDocumento;
+    }
+
+    /**
+     * @param mixed $_numeroDocumento
+     *
+     * @return self
+     */
+    public function setNumeroDocumento($_numeroDocumento)
+    {
+        $this->_numeroDocumento = $_numeroDocumento;
+
+        return $this;
+    }
+
     public function guardar() {
         $sql = "INSERT INTO Persona (id_persona, nombre, apellido, id_tipo_documento, "
              . "numero_documento, fecha_nacimiento) VALUES (NULL, '$this->_nombre', "
@@ -153,29 +176,12 @@ class Persona {
 
     }
 
+    public function setDomicilio() {
+        $this->domicilio = Domicilio::obtenerPorIdPersona($this->_idPersona);
+    }
+
     public function __toString() {
     	return $this->_nombre . ", " . $this->_apellido;
-    }
-
-
-    /**
-     * @return mixed
-     */
-    public function getNumeroDocumento()
-    {
-        return $this->_numeroDocumento;
-    }
-
-    /**
-     * @param mixed $_numeroDocumento
-     *
-     * @return self
-     */
-    public function setNumeroDocumento($_numeroDocumento)
-    {
-        $this->_numeroDocumento = $_numeroDocumento;
-
-        return $this;
     }
 }
 
