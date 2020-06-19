@@ -130,12 +130,14 @@ class Usuario extends Persona {
             $registro = $result->fetch_assoc();
             $usuario = new Usuario($registro['nombre'], $registro['apellido']);
             $usuario->_idUsuario = $registro['id_usuario'];
+            $usuario->_idPersona = $registro['id_persona'];
             $usuario->_username = $registro['username'];
             $usuario->_idPerfil = $registro['id_perfil'];
             $usuario->_fechaUltimoLogin = $registro['fecha_ultimo_login'];
             $usuario->_estaLogueado = true;
 
             $usuario->perfil = Perfil::obtenerPorId($usuario->_idPerfil);
+            //$usuario->setDomicilio();
     	} else {
             $usuario = new Usuario('', '');
             $usuario->_estaLogueado = false;
