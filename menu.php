@@ -28,7 +28,7 @@ $usuario = $_SESSION['usuario'];
 |
 <?php echo $usuario ?> 
 |
-<a href="logout.php">Salir</a>
+<a href="/programacion3/usuarios/logout.php">Salir</a>
 
 </body>
 </html>
