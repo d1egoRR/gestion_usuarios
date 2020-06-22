@@ -60,7 +60,7 @@ $listadoClientes = Cliente::obtenerTodos();
 					<a href="detalle.php?id=<?php echo $cliente->getIdCliente(); ?>">Ver Detalle</a>
 					- 
 					<a href="modificar.php?id=<?php echo $cliente->getIdCliente(); ?>">
-						ver
+						Modificar
 					</a>
 				</td>
 			</tr>
