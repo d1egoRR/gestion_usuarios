@@ -140,10 +140,10 @@ class Domicilio {
     	$mysql->desconectar();
 
     	$data = $datos->fetch_assoc();
-    	$domicilio = new Domicilio();
+    	$domicilio = null;
 
     	if ($datos->num_rows > 0) {
-
+            $domicilio = new Domicilio();
 	    	$domicilio->_idDomicilio = $data['id_domicilio'];
 	    	$domicilio->_calle = $data['calle'];
 	    	$domicilio->_altura = $data['altura'];
