@@ -24,10 +24,33 @@ $cliente = Cliente::obtenerPorId($id);
 	<?php echo $cliente->getNumeroDocumento(); ?>
 	<br>
 	<?php echo $cliente->getFechaNacimiento(); ?>
-	<br>
+	<br><br>
+
 	<?php
-	echo $cliente->domicilio;
-	?>
+
+	/*
+	si cliente no tiene domicilio
+	   permitir agregar nuevo domicilio
+	sino
+	   mostrar lo que ya tiene
+	   permitir modificar
+	fin si
+	*/
+
+	if (is_null($cliente->domicilio)) : ?>
+	    <a href="/programacion3/usuarios/modulos/domicilios/alta.php?id_persona=<?php echo $cliente->getIdPersona(); ?>">
+	        Agregar Domiclio
+	    </a>
+
+	<?php else:?>
+
+		<?php echo $cliente->domicilio; ?>
+		<a href="/programacion3/usuarios/modulos/domicilios/modificar.php?id_domicilio=<?php echo $cliente->domicilio->getIdDomicilio(); ?>">
+		    Modificar Domicilio
+		</a>
+
+	<?php endif ?>
+
 	<br>
 	<br>
 	<br>
