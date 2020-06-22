@@ -96,7 +96,7 @@ class Cliente extends Persona {
         $cliente->_cbu = $data['cbu'];
         $cliente->_idPersona = $data['id_persona'];
         $cliente->_fechaNacimiento = $data['fecha_nacimiento'];
-        $cliente->_tipoDocumento = $data['id_tipo_documento'];
+        $cliente->_idTipoDocumento = $data['id_tipo_documento'];
         $cliente->_numeroDocumento = $data['numero_documento'];
         $cliente->_estado = $data['id_estado'];
         $cliente->setDomicilio();

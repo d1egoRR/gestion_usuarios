@@ -1,3 +1,14 @@
+<?php
+
+require_once '../../class/TipoDocumento.php';
+
+$listadoTipoDocumento = TipoDocumento::obtenerTodos();
+
+//highlight_string(var_export($listadoTipoDocumento, true));
+//exit;
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,6 +37,15 @@
 			<label>Tipo Documento: </label>
 			<select name="cboTipoDocumento">
 			    <option value="0">Seleccionar</option>
+
+				<?php foreach ($listadoTipoDocumento as $tipoDocumento): ?>
+
+					<option value="<?php echo $tipoDocumento->getIdTipoDocumento(); ?>">
+					    <?php echo $tipoDocumento; ?>
+					</option>
+
+				<?php endforeach ?>
+
 			</select>
 			<br><br> <!-- Salto de lineas -->
 
