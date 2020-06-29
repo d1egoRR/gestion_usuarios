@@ -5,7 +5,7 @@ require_once "class/Usuario.php";
 session_start();
 
 if (!isset($_SESSION['usuario'])) {
-	header('location: formulario_login.php');
+	header('location: /programacion3/usuarios/formulario_login.php');
 }
 
 $usuario = $_SESSION['usuario'];
