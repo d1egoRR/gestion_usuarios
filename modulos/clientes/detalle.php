@@ -37,15 +37,16 @@ $cliente = Cliente::obtenerPorId($id);
 	fin si
 	*/
 
-	if (is_null($cliente->domicilio)) : ?>
-	    <a href="/programacion3/usuarios/modulos/domicilios/alta.php?id_persona=<?php echo $cliente->getIdPersona(); ?>">
+	if (is_null($cliente->domicilio)) : ?>	    
+
+	    <a href="/programacion3/usuarios/modulos/domicilios/alta.php?idPersona=<?php echo $cliente->getIdPersona(); ?>&idLlamada=<?php echo $cliente->getIdCliente(); ?>&modulo=clientes">
 	        Agregar Domiclio
 	    </a>
 
 	<?php else:?>
 
 		<?php echo $cliente->domicilio; ?>
-		<a href="/programacion3/usuarios/modulos/domicilios/modificar.php?id_domicilio=<?php echo $cliente->domicilio->getIdDomicilio(); ?>">
+		<a href="/programacion3/usuarios/modulos/domicilios/modificar.php?idDomicilio=<?php echo $cliente->domicilio->getIdDomicilio(); ?>">
 		    Modificar Domicilio
 		</a>
 

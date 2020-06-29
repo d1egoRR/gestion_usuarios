@@ -155,6 +155,16 @@ class Domicilio {
     	return $domicilio;
     }
 
+    public function guardar() {
+        $sql = "INSERT INTO Domicilio (id_domicilio, calle, altura, piso, "
+             . "manzana, id_persona) VALUES (NULL, '$this->_calle', "
+             . "$this->_altura, '$this->_piso', '$this->_manzana', $this->_idPersona)";
+
+        $mysql = new MySQL();
+        $mysql->insertar($sql);
+        $mysql->desconectar();
+    }
+
     public function __toString() {
     	return $this->_calle . " " . $this->_altura;
     }
