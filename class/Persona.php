@@ -1,5 +1,6 @@
 <?php
 
+require_once 'Contacto.php';
 require_once 'Domicilio.php';
 require_once 'MySQL.php';
 

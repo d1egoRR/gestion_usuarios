@@ -6,6 +6,7 @@ $id = $_GET['id'];
 
 $cliente = Cliente::obtenerPorId($id);
 
+
 ?>
 
 <!DOCTYPE html>
@@ -53,6 +54,12 @@ $cliente = Cliente::obtenerPorId($id);
 	<?php endif ?>
 
 	<br>
+	<br>
+
+    <a href="/programacion3/usuarios/modulos/contactos/alta.php?idPersona=<?php echo $cliente->getIdPersona(); ?>&idLlamada=<?php echo $cliente->getIdCliente(); ?>&modulo=clientes">
+        Agregar Contacto
+    </a>
+
 	<br>
 	<br>
 
