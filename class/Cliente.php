@@ -100,6 +100,7 @@ class Cliente extends Persona {
         $cliente->_numeroDocumento = $data['numero_documento'];
         $cliente->_estado = $data['id_estado'];
         $cliente->setDomicilio();
+        $cliente->setContactos();
         return $cliente;
     }
 
