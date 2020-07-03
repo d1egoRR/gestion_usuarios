@@ -6,6 +6,10 @@ $id = $_GET['id'];
 
 $cliente = Cliente::obtenerPorId($id);
 
+//highlight_string(var_export($cliente, true));
+//exit;
+
+
 ?>
 
 <!DOCTYPE html>
@@ -53,6 +57,27 @@ $cliente = Cliente::obtenerPorId($id);
 	<?php endif ?>
 
 	<br>
+	<br>
+
+    <a href="/programacion3/usuarios/modulos/contactos/alta.php?idPersona=<?php echo $cliente->getIdPersona(); ?>&idLlamada=<?php echo $cliente->getIdCliente(); ?>&modulo=clientes">
+        Agregar Contacto
+    </a>
+
+	<br>
+	<br>
+
+	<?php foreach ($cliente->arrContactos as $contacto) : ?>
+
+		<?php echo $contacto; ?>
+
+		<a href="/programacion3/usuarios/modulos/contactos/eliminar.php?idPersonaContacto=<?php echo $contacto->getIdPersonaContacto(); ?>">
+		    Eliminar
+		</a>
+
+		<br>
+
+	<?php endforeach ?>
+
 	<br>
 	<br>
 
