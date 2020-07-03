@@ -1,5 +1,7 @@
 <?php
 
+require_once 'MySQL.php';
+
 
 class Modulo {
 
@@ -70,6 +72,18 @@ class Modulo {
         $this->_directorio = $_directorio;
 
         return $this;
+    }
+
+    public static function obtenerTodos() {
+        $sql = "SELECT * FROM modulo";
+
+        $mysql = new MySQL();
+        $datos = $mysql->consultar($sql);
+        $mysql->desconectar();
+
+        $listado = self::_generarListadoModulos($datos);
+
+        return $listado;
     }
 
     public static function obtenerModulosPorIdPerfil($idPerfil) {

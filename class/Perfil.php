@@ -54,6 +54,16 @@ class Perfil {
         return $this;
     }
 
+    public function guardar() {
+        $sql = "INSERT INTO Perfil (id_perfil, descripcion) "
+             . "VALUES (NULL, '$this->_descripcion')";
+
+        $mysql = new MySQL();
+        $idInsertado = $mysql->insertar($sql);
+
+        $this->_idPerfil = $idInsertado;
+    }
+
     public static function obtenerPorId($idPerfil) {
         $sql = "SELECT * FROM perfil WHERE id_perfil = " . $idPerfil;
 
