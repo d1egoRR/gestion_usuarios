@@ -25,6 +25,8 @@ $cliente = Cliente::obtenerPorId($id);
 
 	<?php echo $cliente; ?>
 	<br>
+	<?php echo $cliente->tipoDocumento; ?>
+	<br>
 	<?php echo $cliente->getNumeroDocumento(); ?>
 	<br>
 	<?php echo $cliente->getFechaNacimiento(); ?>

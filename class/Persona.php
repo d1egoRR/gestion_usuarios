@@ -3,6 +3,7 @@
 require_once 'Contacto.php';
 require_once 'Domicilio.php';
 require_once 'MySQL.php';
+require_once 'TipoDocumento.php';
 
 
 class Persona {
@@ -15,8 +16,8 @@ class Persona {
     protected $_numeroDocumento;
 	protected $_estado;
 
+    public $tipoDocumento;
     public $domicilio;
-
     public $arrContactos;
 
 	const ACTIVO = 1;
@@ -186,6 +187,12 @@ class Persona {
 
     public function setContactos() {
         $this->arrContactos = Contacto::obtenerPorIdPersona($this->_idPersona);
+    }
+
+    public function setTipoDocumento() {
+        if (!is_null($this->_idTipoDocumento)) {
+            $this->tipoDocumento = TipoDocumento::obtenerPorId($this->_idTipoDocumento);
+        }
     }
 
     public function __toString() {

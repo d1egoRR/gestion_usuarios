@@ -73,6 +73,21 @@ class TipoDocumento {
 		return $listado;
     }
 
+    public static function obtenerPorId($id) {
+        $sql = "SELECT * FROM tipodocumento WHERE id_tipo_documento = $id";
+
+        $mysql = new MySQL();
+        $datos = $mysql->consultar($sql);
+        $mysql->desconectar();
+
+        $data = $datos->fetch_assoc();
+        
+        $tipoDocumento = new TipoDocumento($data['descripcion']);
+        $tipoDocumento->_idTipoDocumento = $data['id_tipo_documento'];
+
+        return $tipoDocumento;
+    }
+
     public function __toString() {
     	return $this->_descripcion;
     }
