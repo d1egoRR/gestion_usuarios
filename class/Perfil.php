@@ -78,8 +78,63 @@ class Perfil {
         return $perfil;
     }
 
+    public static function obtenerTodos() {
+        $sql = "SELECT * FROM perfil";
+
+        $mysql = new MySQL();
+        $datos = $mysql->consultar($sql);
+        $mysql->desconectar();
+
+        $listado = self::_generarListadoPerfil($datos);
+
+        return $listado;
+    }
+
+    private function _generarListadoPerfil($datos) {
+        $listado = array();
+        while ($registro = $datos->fetch_assoc()) {
+            $perfil = new Perfil($registro['descripcion']);
+            $perfil->_idPerfil = $registro['id_perfil'];
+            $listado[] = $perfil;
+        }
+        return $listado;
+    }
+
     public function getModulos() {
     	return $this->_arrModulos;
+    }
+
+    public function tieneModulo($idModulo) {
+        $sql = "SELECT * FROM perfil_modulo "
+             . "WHERE id_modulo = $idModulo "
+             . "AND id_perfil = $this->_idPerfil";
+
+        $mysql = new MySQL();
+        $result = $mysql->consultar($sql);
+        $mysql->desconectar();
+
+        /*
+        if ($result->num_rows > 0) {
+            return true;
+        } else {
+            return false;
+        }
+        */
+
+        return $result->num_rows > 0;
+    }
+
+
+    public function actualizar() {
+        $sql = "UPDATE perfil SET descripcion = '$this->_descripcion' WHERE id_perfil = $this->_idPerfil";
+        $mysql = new MySQL();
+        $mysql->actualizar($sql);
+    }
+
+    public function eliminarModulos() {
+        $sql = "DELETE FROM perfil_modulo WHERE id_perfil = $this->_idPerfil";
+        $mysql = new MySQL();
+        $mysql->actualizar($sql);
     }
 
 }
