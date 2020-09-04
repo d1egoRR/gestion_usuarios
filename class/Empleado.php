@@ -3,7 +3,7 @@
 
 class Empleado
 {
-	
+	private $id;
 }
 
 
