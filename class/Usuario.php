@@ -16,34 +16,6 @@ class Usuario extends Persona {
     public $perfil;
 
     /**
-     * @return mixed
-     */
-    public function getIdUsuario()
-    {
-        return $this->_idUsuario;
-    }
-
-    /**
-     * @param mixed $_idUsuario
-     *
-     * @return self
-     */
-    public function setIdUsuario($_idUsuario)
-    {
-        $this->_idUsuario = $_idUsuario;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUsername()
-    {
-        return $this->_username;
-    }
-
-    /**
      * @param mixed $_username
      *
      * @return self
