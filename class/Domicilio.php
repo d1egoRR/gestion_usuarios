@@ -161,7 +161,7 @@ class Domicilio {
              . "$this->_altura, '$this->_piso', '$this->_manzana', $this->_idPersona)";
 
         $mysql = new MySQL();
-        $mysql->insertar($sql);
+        $x = $mysql->insertar($sql);
         $mysql->desconectar();
     }
 
