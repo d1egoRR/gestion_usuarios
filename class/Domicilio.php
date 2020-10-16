@@ -12,25 +12,6 @@ class Domicilio {
 	private $_manzana;
 	private $_idPersona;
 
-    /**
-     * @return mixed
-     */
-    public function getIdDomicilio()
-    {
-        return $this->_idDomicilio;
-    }
-
-    /**
-     * @param mixed $_idDomicilio
-     *
-     * @return self
-     */
-    public function setIdDomicilio($_idDomicilio)
-    {
-        $this->_idDomicilio = $_idDomicilio;
-
-        return $this;
-    }
 
     /**
      * @return mixed
